@@ -1,0 +1,39 @@
+apiVersion: crd.antrea.io/v1alpha1
+kind: PacketCapture
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"crd.antrea.io/v1alpha1","kind":"PacketCapture","metadata":{"annotations":{},"name":"capture-test"},"spec":{"captureConfig":{"firstN":{"number":10}},"destination":{"ip":"8.8.8.8"},"packet":{"ipFamily":"IPv4","protocol":"ICMP"},"source":{"pod":{"name":"toolbox-deployment-bf685f6c5-5schf","namespace":"lfx-mentorship"}},"timeout":300}}
+  creationTimestamp: "2025-02-10T16:55:09Z"
+  generation: 1
+  name: capture-test
+  resourceVersion: "2101"
+  uid: 80b74f5e-c8db-4a13-bba8-660da1f32d44
+spec:
+  captureConfig:
+    firstN:
+      number: 10
+  destination:
+    ip: 8.8.8.8
+  packet:
+    ipFamily: IPv4
+    protocol: ICMP
+  source:
+    pod:
+      name: toolbox-deployment-bf685f6c5-5schf
+      namespace: lfx-mentorship
+  timeout: 300
+status:
+  conditions:
+  - lastTransitionTime: "2025-02-10T16:55:09Z"
+    message: ""
+    reason: Started
+    status: "True"
+    type: PacketCaptureStarted
+  - lastTransitionTime: "2025-02-10T16:57:06Z"
+    message: ""
+    reason: Succeed
+    status: "True"
+    type: PacketCaptureComplete
+  filePath: antrea-agent-2v4zc:/tmp/antrea/packetcapture/packets/capture-test.pcapng
+  numberCaptured: 10

@@ -1,0 +1,19 @@
+apiVersion: crd.antrea.io/v1alpha1
+kind: PacketCapture
+metadata:
+  name: capture-test
+spec:
+  timeout: 300
+  captureConfig:
+    firstN:
+      number: 10
+  source:
+    pod:
+      namespace: lfx-mentorship
+      name: toolbox-deployment-bf685f6c5-5schf
+  destination:
+    ip: 8.8.8.8
+  packet:
+    ipFamily: IPv4
+    protocol: ICMP
+

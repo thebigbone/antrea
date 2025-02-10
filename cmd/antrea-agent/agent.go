@@ -89,6 +89,7 @@ import (
 	"antrea.io/antrea/pkg/util/podstore"
 	utilwait "antrea.io/antrea/pkg/util/wait"
 	"antrea.io/antrea/pkg/version"
+	"antrea.io/antrea/pkg/util/env"
 )
 
 // informerDefaultResync is the default resync period if a handler doesn't specify one.
@@ -107,6 +108,7 @@ var ipv4Localhost = net.ParseIP("127.0.0.1")
 
 // run starts Antrea agent with the given options and waits for termination signal.
 func run(o *Options) error {
+	klog.InfoS("test log entry for antrea-agent!", "githubuser", "thebigbone", "podname", env.GetPodName())
 	klog.InfoS("Starting Antrea Agent", "version", version.GetFullVersion())
 
 	// Create K8s Clientset, CRD Clientset, Multicluster CRD Clientset and SharedInformerFactory for the given config.
